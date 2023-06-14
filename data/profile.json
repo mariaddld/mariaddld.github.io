@@ -1,0 +1,9 @@
+{
+    "headshot" : "images/federico.JPG",
+    "about"    : "My name is Federico Mora Rocha. I am a Ph.D. student in computer science at the University of California, Berkeley, where I am advised by Sanjit A. Seshia. Before Berkeley, I completed an M.Sc. in computer science at the University of Toronto, where I  was advised by Marsha Chechik, and a B.Sc. in computer science and mathematics at Mount Allison University.",
+    "research" : "I am interested in formal methods, programming language theory, and machine learning. Specifically, I am excited about languages that theoretically and empirically lend themselves to efficient automated reasoning.",
+    "cv"       : "https://federico.morarocha.ca/cv/cv.pdf",
+    "email"    : "fmora@cs.berkeley.edu",
+    "scholar"  : "https://scholar.google.com/citations?user=mm91pq0AAAAJ&hl",
+    "website"  : "federico.morarocha.ca"
+}

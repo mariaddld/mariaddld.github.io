@@ -1,0 +1,6 @@
+.vscode
+seo.json
+links.txt
+__pycache__
+.DS_Store
+docs/cv/build
