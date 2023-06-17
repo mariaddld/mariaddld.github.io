@@ -1,20 +1,27 @@
 [
     {
         "year"        : "Ongoing",
-        "degree"      : "Ph.D. in Computer Science",
-        "note"        : "Advised by Sanjit A. Seshia",
-        "institution" : "University of California, Berkeley"
+        "degree"      : "Ph.D. in Bioengineering",
+        "note"        : "Advised by Prof. Daniel Fletcher",
+        "institution" : "University of California, Berkeley and University of California, San Francisco"
     },
     {
-        "year"        : "2018",
-        "degree"      : "M.Sc. in Computer Science",
-        "note"        : "Advised by Marsha Chechik",
-        "institution" : "University of Toronto"
-    },
+        "year"        : "2013-18",
+        "degree"      : "Bachelor of Science in Mechatronics Engineering",
+        "institution" : "Tecnológico de Monterrey, Mexico (ITESM)",
+        "note"        : "GPA of 96/100"
+    }, 
+
     {
-        "year"        : "2016",
-        "degree"      : "B.Sc. in Computer Science and Mathematics",
-        "note"        : "First Class Honours with Distinction",
-        "institution" : "Mount Allison University"
+        "year"        : "2016-17",
+        "degree"      : "DAAD Mexican Engineers Exchange Programme",
+        "institution" : "Karlsruhe Institute of Technology, Germany (KIT)",
+        "note"        : "Faculty of Mechanical Engineering"
+    }, 
+    {
+        "year"        : "2014-15",
+        "degree"      : "International Student Exchange Program",
+        "institution" : "University of British Columbia, Canada (UBC)",
+        "note"        : "Faculty of Applied Science"
     }
 ]

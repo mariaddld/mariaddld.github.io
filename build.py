@@ -576,7 +576,7 @@ def build_cv(
 ):
     cv_tex = r"\documentclass{federico_cv}" + "\n"
     cv_tex += r"\frenchspacing" + "\n"
-    cv_tex += r"\usepackage[backend=biber,style=numeric,refsection=section,maxbibnames=99,sorting=none,defernumbers=true]{biblatex}" + "\n"
+    cv_tex += r"\usepackage[backend=biber,style=numeric,refsection=section,maxbibnames=12,minbibnames=11,sorting=ydnt,defernumbers=true,doi=false,isbn=false,url=false,eprint=false]{biblatex}" + "\n"
     cv_tex += r"\bibliography{cv}" + "\n"
     cv_tex += r"\begin{document}" + "\n\n\n"
 
