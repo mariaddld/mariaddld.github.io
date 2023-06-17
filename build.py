@@ -285,6 +285,14 @@ def build_authors(authors):
         if name in auto_links_json:
             entry = '<a href="%s">%s</a>' % (auto_links_json[name], entry)
 
+        first = " ".join(a.first_names) + " "
+        middle = " ".join(a.middle_names) + " " if len(a.middle_names) > 0 else ""
+        last = " ".join(a.last_names)
+        name = first + middle + last
+        name = name.replace("{", "").replace("}", "")
+        if name == meta_json["name"]:
+            entry = '<strong>%s</strong>' % (entry)
+
         authors_split.append(entry)
 
     for i in range(len(authors_split)):
@@ -295,11 +303,7 @@ def build_authors(authors):
             entry += " and\n"
         authors_split[i] = entry
 
-    authors_text = "".join(authors_split).replace('<a href="', "").replace('">', "").replace('</a>', '')
-    authors_text = re.sub(r'http\S+', '', authors_text)
-    if len(authors_text) > 75:
-        authors_split.insert(len(authors_split) // 2, '<br class="bigscreen">')
-    item += "".join(authors_split)
+    item += "".join(authors_split).replace("{", "").replace("}", "")
     return item
 
 
@@ -340,7 +344,7 @@ def build_icons(p):
     return item
 
 
-def build_pubs_inner(pubs, title: str, full: bool):
+def build_pubs_inner(pubs, title: str, full: bool, only: bool = False):
     if title == "":
         return ""
 
@@ -355,8 +359,6 @@ def build_pubs_inner(pubs, title: str, full: bool):
                 paper_conference = f'<div class="bigscreen"><small>{paper_conference}</small></div><div class="smallscreen">{paper_conference}</div>'
 
             title_split = p.fields["title"].split()
-            if len(p.fields["title"]) > 75:
-                title_split.insert(len(title_split) // 2, '<br class="bigscreen">')
             paper_title = " ".join(title_split)
 
             paper_map = {
@@ -367,7 +369,11 @@ def build_pubs_inner(pubs, title: str, full: bool):
             }
             pubs_list += replace_placeholders(paper_html, paper_map)
 
-    pubs_html = '<h3 id="%spublications">%s</h3>' % (title, title)
+    if not only:
+        pubs_html = '<h3 id="%spublications">%s</h3>' % (title, title)
+    else:
+        pubs_html = ""
+
     pubs_html += pubs_list
 
     return pubs_html
@@ -399,7 +405,7 @@ def build_pubs(pubs, full: bool):
 
     for i in range(len(titles)):
         title = titles[i]
-        pubs_html += build_pubs_inner(pubs, title, full)
+        pubs_html += build_pubs_inner(pubs, title, full, len(titles) == 1)
 
     pubs_html += "</div>\n"  # close pubs
     pubs_html += "</div>\n"  # close section
@@ -842,8 +848,14 @@ if __name__ == "__main__":
     # make the your name bold in cv
     for key in list(pubs_bibtex.entries.keys()):
         authors = pubs_bibtex.entries[key].persons["author"]
-        for name in meta_json["name"].split():
-            authors = [Person(str(author).replace(name, r"\textbf{" + name + "}")) for author in authors]
+        for i in range(len(authors)):
+            first = " ".join(authors[i].first_names) + " "
+            middle = " ".join(authors[i].middle_names) + " " if len(authors[i].middle_names) > 0 else ""
+            last = " ".join(authors[i].last_names)
+            author = first + middle + last
+            author = author.replace("{", "").replace("}", "")
+            if author == meta_json["name"]:
+                authors[i] = Person(r"\textbf{" + str(author) + "}")
         pubs_bibtex.entries[key].persons["author"] = authors
 
     pubs_bibtex.to_file(f"{config.target}/cv/cv.bib")

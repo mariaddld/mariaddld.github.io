@@ -1,9 +1,9 @@
 {
     "headshot" : "",
     "about"    : "",
-    "research" : "I am interested in Neglected Tropical Disease diagnostics.",
-    "cv"       : "",
+    "research" : "Neglected tropical disease diagnostics.",
+    "cv"       : "https://mariaddld.github.io/cv/cv.pdf",
     "email"    : "maria.diaz@berkeley.edu",
     "scholar"  : "",
-    "website"  : ""
+    "website"  : "mariaddld.github.io"
 }

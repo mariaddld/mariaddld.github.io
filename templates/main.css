@@ -159,6 +159,7 @@ a {
 
 .paper-title {
     font-style: italic;
+    padding-bottom: 0.25em;
 }
 
 /* End News and Pubs */
