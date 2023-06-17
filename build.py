@@ -603,6 +603,7 @@ def build_cv(
         cv_tex += f"{{{edu['note']}}}\n\n"
     cv_tex += r"\end{tblSection}" + "\n\n\n"
 
+    cv_tex += r"\let\thefootnote\relax\footnotetext{* denotes equal contribution.}"
     cv_tex += r"\nocite{*}" + "\n"
     sections = []
     for pub in pubs_bibtex.entries.values():
@@ -854,7 +855,35 @@ if __name__ == "__main__":
     
     status("Generating Curriculum Vitae Latex:")
     write_file(f"{config.target}/cv/cv.tex", build_cv(meta_json, profile_json, education_json, pubs_bibtex, awards_json))
-    
+
+    # make the your name bold in cv
+    for key in list(pubs_bibtex.entries.keys()):
+        authors = pubs_bibtex.entries[key].persons["author"]
+
+        if "build_equal_contribution" in pubs_bibtex.entries[key].fields:
+            equal_contribution = int(pubs_bibtex.entries[key].fields["build_equal_contribution"])
+        else:
+            equal_contribution = 0
+
+        for i in range(len(authors)):
+            first = " ".join(authors[i].first_names) + " "
+            middle = " ".join(authors[i].middle_names) + " " if len(authors[i].middle_names) > 0 else ""
+            last = " ".join(authors[i].last_names)
+            author = first + middle + last
+            author = author.replace("{", "").replace("}", "")
+
+            if i < equal_contribution:
+                author_to_write = author + "*"
+            else:
+                author_to_write = author
+
+            if author == meta_json["name"]:
+                authors[i] = Person(r"\textbf{" + str(author_to_write) + "}")
+            else:
+                authors[i] = Person(str(author_to_write))
+                
+        pubs_bibtex.entries[key].persons["author"] = authors
+
     # remove all the entries in pubs_bibtex that start with build_
     for key in list(pubs_bibtex.entries.keys()):
         for field in list(pubs_bibtex.entries[key].fields.keys()):
@@ -863,19 +892,6 @@ if __name__ == "__main__":
                 pubs_bibtex.entries[key].fields.pop(field)
             elif field.startswith("build_"):
                 pubs_bibtex.entries[key].fields.pop(field)
-
-    # make the your name bold in cv
-    for key in list(pubs_bibtex.entries.keys()):
-        authors = pubs_bibtex.entries[key].persons["author"]
-        for i in range(len(authors)):
-            first = " ".join(authors[i].first_names) + " "
-            middle = " ".join(authors[i].middle_names) + " " if len(authors[i].middle_names) > 0 else ""
-            last = " ".join(authors[i].last_names)
-            author = first + middle + last
-            author = author.replace("{", "").replace("}", "")
-            if author == meta_json["name"]:
-                authors[i] = Person(r"\textbf{" + str(author) + "}")
-        pubs_bibtex.entries[key].persons["author"] = authors
 
     pubs_bibtex.to_file(f"{config.target}/cv/cv.bib")
 
