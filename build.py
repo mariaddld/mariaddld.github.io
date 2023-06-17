@@ -579,6 +579,7 @@ def build_cv(
     profile_json: Dict[str, str],
     education_json: Dict[str, str],
     pubs_bibtex,
+    awards_json: Dict[str, str],
 ):
     cv_tex = r"\documentclass{federico_cv}" + "\n"
     cv_tex += r"\frenchspacing" + "\n"
@@ -597,9 +598,9 @@ def build_cv(
     for edu in education_json:
         cv_tex += "\degree\n"
         cv_tex += f"{{{edu['year']}}}\n"
+        cv_tex += f"{{{edu['institution']}}}\n"
         cv_tex += f"{{{edu['degree']}}}\n"
-        cv_tex += f"{{{edu['note']}}}\n"
-        cv_tex += f"{{{edu['institution']}}}\n\n"
+        cv_tex += f"{{{edu['note']}}}\n\n"
     cv_tex += r"\end{tblSection}" + "\n\n\n"
 
     cv_tex += r"\nocite{*}" + "\n"
@@ -610,6 +611,13 @@ def build_cv(
     for section in sections:
         cv_tex += f"\printbibliography[keyword={{{section}}},title={{{section}}},resetnumbers=true]\n"
     cv_tex += "\n\n\n"
+
+    cv_tex += r"\begin{tblSection}{Awards and Distinctions}{0.1}{0.85}" + "\n"
+    for award in awards_json:
+        cv_tex += r"\award" + "\n"
+        cv_tex += f"{{{award['date']}}}\n"
+        cv_tex += f"{{{award['text']}}}\n\n"
+    cv_tex += r"\end{tblSection}" + "\n\n\n"
 
     cv_tex += r"\end{document}"
     return cv_tex
@@ -780,6 +788,17 @@ if __name__ == "__main__":
             'Must include a "institution" field for each education in data/education.json!',
         )
 
+    awards_json = read_data("data/awards.json", optional=True)
+    for award in awards_json:
+        fail_if_not(
+            "date" in award,
+            'Must include a "date" field for each award in data/awards.json!',
+        )
+        fail_if_not(
+            "text" in award,
+            'Must include a "text" field for each award in data/awards.json!',
+        )
+
     auto_links_json = read_data("data/auto_links.json", optional=True)
     auto_notes_json = read_data("data/auto_notes.json", optional=True)
 
@@ -834,7 +853,7 @@ if __name__ == "__main__":
         exit(0)
     
     status("Generating Curriculum Vitae Latex:")
-    write_file(f"{config.target}/cv/cv.tex", build_cv(meta_json, profile_json, education_json, pubs_bibtex))
+    write_file(f"{config.target}/cv/cv.tex", build_cv(meta_json, profile_json, education_json, pubs_bibtex, awards_json))
     
     # remove all the entries in pubs_bibtex that start with build_
     for key in list(pubs_bibtex.entries.keys()):
