@@ -580,8 +580,11 @@ def build_cv(
     education_json: Dict[str, str],
     pubs_bibtex,
     awards_json: Dict[str, str],
+    volunteer_json: Dict[str, str],
+    langugae_json: Dict[str, str],
 ):
     cv_tex = r"\documentclass{federico_cv}" + "\n"
+    cv_tex += r"\lhead{María Díaz de León Derby}" + "\n"
     cv_tex += r"\frenchspacing" + "\n"
     cv_tex += r"\usepackage[backend=biber,style=numeric,refsection=section,maxbibnames=12,minbibnames=11,sorting=ydnt,defernumbers=true,doi=false,isbn=false,url=false,eprint=false]{biblatex}" + "\n"
     cv_tex += r"\bibliography{cv}" + "\n"
@@ -618,6 +621,24 @@ def build_cv(
         cv_tex += r"\award" + "\n"
         cv_tex += f"{{{award['date']}}}\n"
         cv_tex += f"{{{award['text']}}}\n\n"
+    cv_tex += r"\end{tblSection}" + "\n\n\n"
+
+    cv_tex += r"\begin{tblSection}{Volunteer Work}{0.1}{0.85}" + "\n"
+    for volunteer in volunteer_json:
+        cv_tex += r"\job" + "\n"
+        cv_tex += f"{{{volunteer['date']}}}\n"
+        cv_tex += f"{{{volunteer['title']}}}\n"
+        for bullet in volunteer['bullets']:
+            cv_tex += f"{{{bullet}}}\n"
+        cv_tex += "\n"
+    cv_tex += r"\end{tblSection}" + "\n\n\n"
+
+    cv_tex += r"\begin{tblSection}{Languages}{0.1}{0.85}" + "\n"
+    for language in langugae_json:
+        cv_tex += r"\leftrightsingletight" + "\n"
+        cv_tex += f"{{{language['language']}}}\n"
+        evidence = f" ({language['evidence']})" if language['evidence']  != "" else ""
+        cv_tex += f"{{{language['level']}{evidence}}}\n\n"
     cv_tex += r"\end{tblSection}" + "\n\n\n"
 
     cv_tex += r"\end{document}"
@@ -800,6 +821,30 @@ if __name__ == "__main__":
             'Must include a "text" field for each award in data/awards.json!',
         )
 
+    volunteer_json = read_data("data/volunteer.json", optional=True)
+    for volunteer in volunteer_json:
+        fail_if_not(
+            "date" in volunteer,
+            'Must include a "date" field for each volunteer in data/volunteer.json!',
+        )
+        fail_if_not(
+            "title" in volunteer,
+            'Must include a "text" field for each volunteer in data/volunteer.json!',
+        )
+        fill_if_missing(volunteer, "bullets")
+
+    languages_json = read_data("data/languages.json", optional=True)
+    for language in languages_json:
+        fail_if_not(
+            "language" in language,
+            'Must include a "language" field for each language in data/languages.json!',
+        )
+        fail_if_not(
+            "level" in language,
+            'Must include a "level" field for each language in data/languages.json!',
+        )
+        fill_if_missing(language, "evidence")
+
     auto_links_json = read_data("data/auto_links.json", optional=True)
     auto_notes_json = read_data("data/auto_notes.json", optional=True)
 
@@ -854,7 +899,8 @@ if __name__ == "__main__":
         exit(0)
     
     status("Generating Curriculum Vitae Latex:")
-    write_file(f"{config.target}/cv/cv.tex", build_cv(meta_json, profile_json, education_json, pubs_bibtex, awards_json))
+    cv = build_cv(meta_json, profile_json, education_json, pubs_bibtex, awards_json, volunteer_json, languages_json)
+    write_file(f"{config.target}/cv/cv.tex", cv)
 
     # make the your name bold in cv
     for key in list(pubs_bibtex.entries.keys()):
