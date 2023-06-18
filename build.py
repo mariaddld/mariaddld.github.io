@@ -579,6 +579,7 @@ def build_cv(
     profile_json: Dict[str, str],
     education_json: Dict[str, str],
     pubs_bibtex,
+    presentations_json: Dict[str, str],
     awards_json: Dict[str, str],
     volunteer_json: Dict[str, str],
     langugae_json: Dict[str, str],
@@ -615,6 +616,14 @@ def build_cv(
     for section in sections:
         cv_tex += f"\printbibliography[keyword={{{section}}},title={{{section}}},resetnumbers=true]\n"
     cv_tex += "\n\n\n"
+
+    cv_tex += r"\begin{tblSection}{Presentations}{0.1}{0.85}" + "\n"
+    for presentation in presentations_json:
+        cv_tex += r"\leftbfrightsingle" + "\n"
+        cv_tex += f"{{{presentation['date']}}}\n"
+        cv_tex += f"{{{presentation['venue']}}}\n"
+        cv_tex += f"{{{presentation['category']}: \\textit{{{presentation['title']}}}}}\n\n"
+    cv_tex += r"\end{tblSection}" + "\n\n\n"
 
     cv_tex += r"\begin{tblSection}{Awards and Distinctions}{0.1}{0.85}" + "\n"
     for award in awards_json:
@@ -794,6 +803,25 @@ if __name__ == "__main__":
             'Must include a "build_selected" field for each pub in data/publications.json!',
         )
 
+    presentations_json = read_data("data/presentations.json", optional=True)
+    for presentation in presentations_json:
+        fail_if_not(
+            "date" in presentation,
+            'Must include a "date" field for each presentation in data/presentations.json!',
+        )
+        fail_if_not(
+            "title" in presentation,
+            'Must include a "title" field for each presentation in data/presentations.json!',
+        )
+        fail_if_not(
+            "venue" in presentation,
+            'Must include a "venue" field for each presentation in data/presentations.json!',
+        )
+        fail_if_not(
+            "category" in presentation, 
+            'Must include a "category" field for each presentation in data/presentations.json!'
+        )
+
     education_json = read_data("data/education.json", optional=True)
     for education in education_json:
         fail_if_not(
@@ -899,7 +927,7 @@ if __name__ == "__main__":
         exit(0)
     
     status("Generating Curriculum Vitae Latex:")
-    cv = build_cv(meta_json, profile_json, education_json, pubs_bibtex, awards_json, volunteer_json, languages_json)
+    cv = build_cv(meta_json, profile_json, education_json, pubs_bibtex, presentations_json, awards_json, volunteer_json, languages_json)
     write_file(f"{config.target}/cv/cv.tex", cv)
 
     # make the your name bold in cv

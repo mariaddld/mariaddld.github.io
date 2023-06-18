@@ -1,0 +1,44 @@
+[
+    {
+        "date": "03/2023",
+        "title": "Mobile Phone-based Diagnostics for Neglected Tropical Diseases: Automated Identification of Schistosoma haematobium from Urine Samples",
+        "venue": "Tropical Infectious Diseases Gordon Research Seminar",
+        "category": "Poster and Talk"
+    },
+    {
+        "date": "10/2022",
+        "title": "Machine Learning for Automated Schistosomiasis Detection",
+        "venue": "American Society for Tropical Medicine and Hygiene 2022 Annual Meeting: Advances in Point-Of-Care Technologies for NTDs Symposium",
+        "category": "Talk"
+    },
+    {
+        "date": "10/2022",
+        "title": "Mobile Phone-based Diagnostics for Neglected Tropical Diseases",
+        "venue": "UC Berkeley/UCSF Graduate Program in Bioengineering: Annual Conference and Retreat",
+        "category": "Talk"
+    },
+    {
+        "date": "09/2021",
+        "title": "Harnessing Mobile Phones for Diagnosis of Neglected Tropical Diseases",
+        "venue": "UC Berkeley Health Tech Co-Lab Grand Opening",
+        "category": "Invited Talk"
+    },
+    {
+        "date": "05/2021",
+        "title": "Amplification-free detection of SARS-CoV-2 with CRISPR-Cas13a and mobile phone microscopy",
+        "venue": "Conversations on Bioinspired Engineering - Seminar Series, UC Berkeley",
+        "category": "Invited Talk"
+    },
+    {
+        "date": "08/2018",
+        "title": "Continuous 3D chaotic printing: Using the chaotic flow induced by a Kenics mixer to continuously fabricate complex micro- and/or nanostructure at high resolution",
+        "venue": "ACS Fall 2018 National Meeting and Exposition",
+        "category": "Poster"
+    },
+    {
+        "date": "01/2018",
+        "title": "Continuous 3D chaotic printing: Using the chaotic flow induced by a Kenics mixer to continuously fabricate complex microstructure at high resolution",
+        "venue": "2018 Research and Development Congress at ITESM",
+        "category": "Poster"
+    }
+]
