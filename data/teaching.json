@@ -1,0 +1,20 @@
+[
+    {
+        "date": "2023",
+        "program": "Berkeley Bioegineering Scholars Program",
+        "role": "Graduate Student Mentor",
+        "bullets": ["Working with one Bioengineering undergraduate student to design a gravity-assisted syringe pump for Point-of-Care diagnostics of Schistosomiasis"]
+    },
+    {
+        "date": "2021",
+        "program": "University of California, Berkeley",
+        "role": "Graduate Student Instructor",
+        "bullets": ["Bioengineering 168L - Practical Light Microscopy", "Lead Instructor: Prof. Daniel Fletcher", "Responsible for leading a laboratory section, conducting weekly office hours, and grading assignments."]
+    },
+    {
+        "date": "2019-21",
+        "program": "Center for Cellular Construction Workshop",
+        "role": "Teaching Assistant",
+        "bullets": ["Helped design and teach a two week workshop where 20 high school students and teachers are introduced to cellular engineering and program robots that mimic cellular behaviour."]
+    }
+]

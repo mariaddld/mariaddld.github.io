@@ -580,6 +580,7 @@ def build_cv(
     education_json: Dict[str, str],
     pubs_bibtex,
     presentations_json: Dict[str, str],
+    teaching_json: Dict[str, str],
     awards_json: Dict[str, str],
     volunteer_json: Dict[str, str],
     langugae_json: Dict[str, str],
@@ -625,6 +626,16 @@ def build_cv(
         cv_tex += f"{{{presentation['category']}: \\textit{{{presentation['title']}}}}}\n\n"
     cv_tex += r"\end{tblSection}" + "\n\n\n"
 
+    cv_tex += r"\begin{tblSection}{Teaching}{0.1}{0.85}" + "\n"
+    for teaching in teaching_json:
+        cv_tex += r"\leftbfrightsingle" + "\n"
+        cv_tex += f"{{{teaching['date']}}}\n"
+        cv_tex += f"{{{teaching['role']}, {teaching['program']}}}\n"
+        for bullet in teaching['bullets']:
+            cv_tex += f"{{- {bullet}}}\n"
+        cv_tex += "\n"
+    cv_tex += r"\end{tblSection}" + "\n\n\n"
+
     cv_tex += r"\begin{tblSection}{Awards and Distinctions}{0.1}{0.85}" + "\n"
     for award in awards_json:
         cv_tex += r"\award" + "\n"
@@ -638,7 +649,7 @@ def build_cv(
         cv_tex += f"{{{volunteer['date']}}}\n"
         cv_tex += f"{{{volunteer['title']}}}\n"
         for bullet in volunteer['bullets']:
-            cv_tex += f"{{{bullet}}}\n"
+            cv_tex += f"{{- {bullet}}}\n"
         cv_tex += "\n"
     cv_tex += r"\end{tblSection}" + "\n\n\n"
 
@@ -838,6 +849,22 @@ if __name__ == "__main__":
             'Must include a "institution" field for each education in data/education.json!',
         )
 
+    teaching_json = read_data("data/teaching.json", optional=True)
+    for teaching in teaching_json:
+        fail_if_not(
+            "date" in teaching,
+            'Must include a "date" field for each teaching in data/teaching.json!',
+        )
+        fail_if_not(
+            "program" in teaching,
+            'Must include a "program" field for each teaching in data/teaching.json!',
+        )
+        fail_if_not(
+            "role" in teaching,
+            'Must include a "role" field for each teaching in data/teaching.json!',
+        )
+        fill_if_missing(teaching, "bullets")
+
     awards_json = read_data("data/awards.json", optional=True)
     for award in awards_json:
         fail_if_not(
@@ -927,7 +954,7 @@ if __name__ == "__main__":
         exit(0)
     
     status("Generating Curriculum Vitae Latex:")
-    cv = build_cv(meta_json, profile_json, education_json, pubs_bibtex, presentations_json, awards_json, volunteer_json, languages_json)
+    cv = build_cv(meta_json, profile_json, education_json, pubs_bibtex, presentations_json, teaching_json, awards_json, volunteer_json, languages_json)
     write_file(f"{config.target}/cv/cv.tex", cv)
 
     # make the your name bold in cv

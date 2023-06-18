@@ -2,11 +2,21 @@
     {
         "date": "2022",
         "title": "Be A Scientist",
-        "bullets": ["Graduate Student Mentor at Longfellow Middle School in Berkeley, California"]
+        "bullets": ["Graduate student mentor at Longfellow Middle School in Berkeley, California"]
+    },
+    {
+        "date": "2014-16",
+        "title": "Prepanet",
+        "bullets": ["Science and Mathematics tutor for an online high school system serving underprivileged Mexican students"]
+    },
+    {
+        "date": "2013-16",
+        "title": "Team LamBot 3478 (FIRST Robotics)",
+        "bullets": ["Lead mentor responsible for leading a group of 15 academic and industry mentors and 50 high school students from San Luis Potosí, Mexico."]
     },
     {
         "date": "2013-14",
         "title": "FIRST Robotics",
-        "bullets": ["Judge Assistant, Field Assembly Volunteer, and Referee"]
+        "bullets": ["Judge assistant, field assembly volunteer, and referee"]
     }
 ]
