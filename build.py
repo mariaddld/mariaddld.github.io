@@ -268,16 +268,23 @@ def some_not_selected(pubs):
     return False
 
 
-def build_authors(authors):
+def build_authors(authors, equal_contribution):
     item = ""
 
     authors_split = []
-    for a in authors:
+    for i in range(len(authors)):
+        a = authors[i]
+
         entry = "%s%s%s" % (
             " ".join(a.first_names)[0] + ". ",
             " ".join(a.middle_names)[0] + ". " if len(a.middle_names) > 0 else "",
             " ".join(a.last_names),
         )
+
+        if i < equal_contribution:
+            entry = entry + "*"
+        else:
+            entry = entry
 
         name = " ".join(a.first_names)
         name += "" if len(a.middle_names) == 0 else " " + " ".join(a.middle_names)
@@ -350,7 +357,9 @@ def build_pubs_inner(pubs, title: str, full: bool, only: bool = False):
 
     pubs_list = ""
 
-    for p in pubs.entries.values():
+    sorted_pubs = sorted(pubs.entries.values(), key=lambda x: x.fields["year"], reverse=True)
+
+    for p in sorted_pubs:
         if title == p.fields["build_keywords"] and (p.fields["build_selected"] == "true" or full):
             status("- " + p.fields["title"])
 
@@ -361,9 +370,14 @@ def build_pubs_inner(pubs, title: str, full: bool, only: bool = False):
             title_split = p.fields["title"].split()
             paper_title = " ".join(title_split)
 
+            if "build_equal_contribution" in p.fields:
+                equal_contribution = int(p.fields["build_equal_contribution"])
+            else:
+                equal_contribution = 0
+
             paper_map = {
                 "paper-title": paper_title,
-                "paper-authors": build_authors(p.persons['author']),
+                "paper-authors": build_authors(p.persons['author'], equal_contribution),
                 "paper-conference": paper_conference,
                 "paper-icons": build_icons(p),
             }
@@ -422,8 +436,8 @@ def build_profile(profile: Dict[str, str]):
     if "research" in profile:
         profile_html += "<p>" + "</p><p>".join(profile["research"].split("\n")) + "</p>"
     profile_html += "\n<p>Here is my "
-    profile_html += '<a href="%s">CV</a> and ' % profile["cv"]
-    profile_html += '<a href="%s">Google Scholar</a>. ' % profile["scholar"]
+    profile_html += '<a href="%s">CV</a>. ' % profile["cv"]
+    # profile_html += '<a href="%s">Google Scholar</a>. ' % profile["scholar"]
     profile_html += "You can reach me at %s." % profile["email"]
     profile_html += "</p>\n"  # close description paragraph
     profile_html += "</div>\n"  # close profile
@@ -805,6 +819,10 @@ if __name__ == "__main__":
 
     pubs_bibtex = parse_file("data/publications.bib") if os.path.exists("data/publications.bib") else []
     for pub in pubs_bibtex.entries.values():
+        fail_if_not(
+            "year" in pub.fields,
+            'Must include a "year" subfield for each pub venue in data/publications.json!',
+        )
         fail_if_not(
             "title" in pub.fields,
             'Must include a "title" field for each pub in data/publications.json!',

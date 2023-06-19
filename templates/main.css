@@ -147,7 +147,6 @@ a {
 
 .paper-icons {
     float: right;
-    align-items: center;
     display: flex;
     width: calc(25px * 4);
 }

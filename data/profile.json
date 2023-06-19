@@ -1,7 +1,7 @@
 {
-    "headshot" : "",
-    "about"    : "",
-    "research" : "I am interested in developing develop machine learning techniques for the diagnosis of Neglected Tropical Diseases, a group of conditions that affect one billion of the world's most vulnerable people.",
+    "headshot" : "images/maria.png",
+    "about"    : "My name is María Díaz de Léon Derby and I am a PhD student in the joint UC Berkeley - UCSF Bioengineering Department where I am advised by Prof. Dan Fletcher. Before Berkeley, I completed a bachelor in Mechatronics Engineering at the Tecnológico de Monterrey (ITESM) in Mexico.",
+    "research" : "I am interested in developing machine learning techniques for the diagnosis of Neglected Tropical Diseases, a group of conditions that affect one billion of the world's most vulnerable people.",
     "cv"       : "https://mariaddld.github.io/cv/cv.pdf",
     "email"    : "maria.diaz@berkeley.edu",
     "scholar"  : "",

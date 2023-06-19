@@ -1,6 +1,18 @@
 [
     {
-        "date": "05/2023",
-        "text": ""
+        "date": "03/2023",
+        "text": "I presented our work at the <a href=\"https://www.grc.org/tropical-infectious-diseases-grs-conference/2023/\">Tropical Infectious Diseases Gordon Research Seminar</a>"
+    },
+    {
+        "date": "10/2022",
+        "text": "I presented our work on machine learning for automated schistosomiasis detection at the American Society for Tropical Medicine and Hygiene 2022 Annual Meeting"
+    },
+    {
+        "date": "09/2021",
+        "text": "I presented our work on harnessing mobile phones for diagnosis of neglected tropical diseases at the UC Berkeley Health Tech Co-Lab Grand Opening"
+    },
+    {
+        "date": "04/2021",
+        "text": "Berkeley Engineering magazine wrote <a href=\"https://engineering.berkeley.edu/news/2021/04/the-health-lab-in-your-pocket/\">an article</a> about our work!"
     }
 ]
