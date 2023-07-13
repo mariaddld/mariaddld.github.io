@@ -1,18 +1,21 @@
 \documentclass{federico_cv}
 \lhead{María Díaz de León Derby}
 \frenchspacing
+\usepackage{enumitem}
 \usepackage[backend=biber,style=numeric,refsection=section,maxbibnames=12,minbibnames=11,sorting=ydnt,defernumbers=true,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 \bibliography{cv}
 \begin{document}
 
 
-\contact{María Díaz de León Derby}
-{\MYhref{mariaddld.github.io}{mariaddld.github.io}}
-{\MYhref{mailto:maria.diaz@berkeley.edu}{maria.diaz@berkeley.edu}}
+\contact
+{María Díaz de León Derby}
+{} % {mariaddld.github.io}
+{} % {maria.diaz@berkeley.edu}
+
 
 
 \section{Research Interests}
-I am interested in developing develop machine learning techniques for the diagnosis of Neglected Tropical Diseases, a group of conditions that affect one billion of the world's most vulnerable people.
+Developing machine learning and mobile microscopy tools for the diagnosis of Neglected Tropical Diseases, a group of conditions that affect one billion of the world's most vulnerable people.
 
 
 \begin{tblSection}{Education}{0.1}{0.85}
@@ -43,9 +46,40 @@ I am interested in developing develop machine learning techniques for the diagno
 \end{tblSection}
 
 
+\begin{tblSection}{Research Experience}{0.1}{0.85}
+\job
+{2019-}
+{University of California, Berkeley}
+{Supervisor: Prof. Daniel Fletcher}
+{Development of mobile microscopy platforms and assays for disease diagnostics: 
+    \begin{enumerate}[noitemsep,nosep,nolistsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+        \item Device for diagnostics of COVID-19 and other viral diseases using CRISPR/Cas13.
+        \item Mobile phone-based platform for automatic diagnosis of Schistosomiasis, Loa loa and other Neglected Tropical Diseases.
+    \end{enumerate}
+}
+
+\job
+{2018-19}
+{Tecnológico de Monterrey, Mexico (ITESM)}
+{Supervisors: Dr. Mario Moises Alvarez and Dr. Grissel Trujillo de Santiago}
+{Continuous 3D chaotic printing: Using the chaotic flow induced by a Kenics mixer to continuously fabricate complex microstructure at high resolution}
+
+\job
+{2017}
+{Daimler AG, Sindelfingen, Germany}
+{Mercedes Benz Research and Development}
+{Internship in the field of Hybrid Drives: Data analysis, development and testing. Developed a MATLAB evaluation tool for analysing data obtained from test vehicles.}
+
+\job
+{2014-16}
+{University of British Columbia, Canada (UBC)}
+{Supervisor: Dr. Mina Hoorfar}
+{Development of a technique for static droplet mixing in digital microfluidics and a digital microfluidics cell-patterning system.}
+
+\end{tblSection}
 \let\thefootnote\relax\footnotetext{* denotes equal contribution.}\nocite{*}
 \printbibliography[keyword={Publications},title={Publications},resetnumbers=true]
-
+\printbibliography[keyword={Patents},title={Patents},resetnumbers=true]
 
 
 \begin{tblSection}{Presentations}{0.1}{0.85}
@@ -62,6 +96,11 @@ I am interested in developing develop machine learning techniques for the diagno
 \leftbfrightsingle
 {10/2022}
 {UC Berkeley/UCSF Graduate Program in Bioengineering: Annual Conference and Retreat}
+{Talk: \textit{Mobile Phone-based Diagnostics for Neglected Tropical Diseases}}
+
+\leftbfrightsingle
+{05/2022}
+{Measuring Development 2022: The Role of Mobile Data in Global Development}
 {Talk: \textit{Mobile Phone-based Diagnostics for Neglected Tropical Diseases}}
 
 \leftbfrightsingle
@@ -169,24 +208,29 @@ I am interested in developing develop machine learning techniques for the diagno
 
 \begin{tblSection}{Volunteer Work}{0.1}{0.85}
 \job
+{2021+22}
+{Día de la Ingenería/Latinx Engineering Day at the Exploratorium museum}
+{Led the exhibit ``Exploración con microscopios basados en teléfonos celulares''}
+
+\job
 {2022}
 {Be A Scientist}
-{- Graduate student mentor at Longfellow Middle School in Berkeley, California}
+{Graduate student mentor at Longfellow Middle School in Berkeley, California}
 
 \job
 {2014-16}
 {Prepanet}
-{- Science and Mathematics tutor for an online high school system serving underprivileged Mexican students}
+{Science and Mathematics tutor for an online high school system serving underprivileged Mexican students}
 
 \job
 {2013-16}
 {Team LamBot 3478 (FIRST Robotics)}
-{- Lead mentor responsible for leading a group of 15 academic and industry mentors and 50 high school students from San Luis Potosí, Mexico.}
+{Lead mentor responsible for leading a group of 15 academic and industry mentors and 50 high school students from San Luis Potosí, Mexico.}
 
 \job
 {2013-14}
 {FIRST Robotics}
-{- Judge assistant, field assembly volunteer, and referee}
+{Judge assistant, field assembly volunteer, and referee}
 
 \end{tblSection}
 
