@@ -76,6 +76,12 @@
 \newcommand{\leftbfrightsingleCheckNextArg}{\@ifnextchar\bgroup{\leftbfrightsingleGobbleNextArg}{\\[-0.6em]}}
 \newcommand{\leftbfrightsingleGobbleNextArg}[1]{& #1 \\\@ifnextchar\bgroup{\leftbfrightsingleGobbleNextArg}{\\[-0.6em]}}
 
+\newcommand{\leftbfrightsinglenobreak}[2]{%
+    #1 & \textbf{#2} \\*\leftbfrightsinglenobreakCheckNextArg}
+\newcommand{\leftbfrightsinglenobreakCheckNextArg}{\@ifnextchar\bgroup{\leftbfrightsinglenobreakGobbleNextArg}{\\*[-0.6em]}}
+\newcommand{\leftbfrightsinglenobreakGobbleNextArg}[1]{& #1 \\*\@ifnextchar\bgroup{\leftbfrightsinglenobreakGobbleNextArg}{\\*[-0.6em]}}
+
+
 \newcommand{\leftrightsingle}[2]{%
     #1 & #2 \\\leftrightsingleCheckNextArg}
 \newcommand{\leftrightsingleCheckNextArg}{\@ifnextchar\bgroup{\leftrightsingleGobbleNextArg}{\\[-0.6em]}}
