@@ -1,0 +1,20 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'cv.blg'
+[49] biber-darwin:340> INFO - === Wed Jun 12, 2024, 14:58:26
+[61] Biber.pm:419> INFO - Reading 'cv.bcf'
+[123] Biber.pm:976> INFO - Using all citekeys in bib section 0
+[133] Biber.pm:4419> INFO - Processing section 0
+[141] Biber.pm:4610> INFO - Looking for bibtex file 'cv.bib' for section 0
+[143] bibtex.pm:1713> INFO - LaTeX decoding ...
+[153] bibtex.pm:1519> INFO - Found BibTeX data source 'cv.bib'
+[333] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[333] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[333] Biber.pm:4239> INFO - Sorting list 'ydnt/global//global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[333] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[354] bbl.pm:660> INFO - Writing 'cv.bbl' with encoding 'UTF-8'
+[407] bbl.pm:763> INFO - Output to cv.bbl
+[407] Biber.pm:131> WARN - legacy month field 'jun' in entry 'Chávez-Madero_2020' is not an integer - this will probably not sort properly.
+[407] Biber.pm:131> WARN - legacy month field 'Sep' in entry 'Liu2021' is not an integer - this will probably not sort properly.
+[407] Biber.pm:131> WARN - legacy month field 'Aug' in entry 'Chandrasekaran2022' is not an integer - this will probably not sort properly.
+[407] Biber.pm:131> WARN - legacy month field 'Nov' in entry 'WO2022229721A1' is not an integer - this will probably not sort properly.
+[407] Biber.pm:133> INFO - WARNINGS: 4
