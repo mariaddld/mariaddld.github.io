@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber cv"] 1718229472 "cv.bcf" "cv.bbl" "cv" 1718637319 0
-  "cv.bcf" 1718637319 107697 2484b77b51fcd5db80e5b6f20f6836f9 "pdflatex"
+["biber cv"] 1718229472 "cv.bcf" "cv.bbl" "cv" 1727294000 0
+  "cv.bcf" 1727294000 107697 2484b77b51fcd5db80e5b6f20f6836f9 "pdflatex"
   (generated)
   "cv.bbl"
   "cv.blg"
   (rewritten before read)
-["pdflatex"] 1718637318 "/Users/Maria/Documents/GitHub/mariaddld.github.io/docs/cv/cv.tex" "cv.pdf" "cv" 1718637319 0
-  "/Users/Maria/Documents/GitHub/mariaddld.github.io/docs/cv/cv.tex" 1718637318 8488 538a2306f5990d359eef7d6a8c762f8a ""
+["pdflatex"] 1727293999 "/Users/Maria/Documents/GitHub/mariaddld.github.io/docs/cv/cv.tex" "cv.pdf" "cv" 1727294000 0
+  "/Users/Maria/Documents/GitHub/mariaddld.github.io/docs/cv/cv.tex" 1727293999 8747 f52bcb2ac825c31b48bbe9d1098e35df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -99,11 +99,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1686709910 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1686709871 7883453 34800a8e3c2c6a71e1448b4a44ed5ec2 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "cv.aux" 1718637319 3687 ca3cd12e0d3f4915f14647b52c305b82 "pdflatex"
+  "cv.aux" 1727294000 3687 ca3cd12e0d3f4915f14647b52c305b82 "pdflatex"
   "cv.bbl" 1718229507 49947 585527fce7974af448a83b79f46c4486 "biber cv"
-  "cv.out" 1718637319 1078 593c25ed9f10f11e4a88d25add84f452 "pdflatex"
-  "cv.run.xml" 1718637319 2283 1d7e1739cb0834fd9bb4e0f47cfbcd5d "pdflatex"
-  "cv.tex" 1718637318 8488 538a2306f5990d359eef7d6a8c762f8a ""
+  "cv.out" 1727294000 1078 593c25ed9f10f11e4a88d25add84f452 "pdflatex"
+  "cv.run.xml" 1727294000 2283 1d7e1739cb0834fd9bb4e0f47cfbcd5d "pdflatex"
+  "cv.tex" 1727293999 8747 f52bcb2ac825c31b48bbe9d1098e35df ""
   "federico_cv.cls" 1689439764 4216 ea92b40b916f057519009243a517cb2b ""
   (generated)
   "cv.aux"
