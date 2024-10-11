@@ -36,11 +36,13 @@
 \thispagestyle{empty}
 \usepackage{multirow}
 \usepackage{tabularx}
-\newcommand{\contact}[3]{
+\newcommand{\contact}[5]{
 \vfill\noindent
 \begin{tabularx}{\textwidth}{@{}Xr@{}}
-  \multirow{2}{*}{\textbf{\huge{#1}}} & #2\\
+                                      & #2\\
                                       & #3\\
+\multirow{2}{*}{\textbf{\huge{#1}}}   & #4\\
+                                      & #5\\
 \end{tabularx}
 \vspace{0.5em}
 }
