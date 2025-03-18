@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.13)  25 SEP 2024 12:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.13)  6 MAR 2025 14:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -590,38 +590,51 @@ Package biblatex Info: ... file 'cv.bbl' found.
  (./cv.bbl)
 Package biblatex Info: Reference section=0 on input line 7.
 Package biblatex Info: Reference segment=0 on input line 7.
+ [1
+
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 81.
+(Font)              <8> on input line 87.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 81.
+(Font)              <6> on input line 87.
 
 
-Package hyperref Warning: Ignoring empty anchor on input line 81.
+Package hyperref Warning: Ignoring empty anchor on input line 87.
 
-[1
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+[]|\OT1/cmr/m/n/10 Software:
+ []
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] 
-enddocument/afterlastpage: lastpage setting LastPage.
-(./cv.aux)
-Package rerunfilecheck Info: File `cv.out' has not changed.
-(rerunfilecheck)             Checksum: 593C25ED9F10F11E4A88D25ADD84F452;1078.
-Package logreq Info: Writing requests to 'cv.run.xml'.
-\openout1 = `cv.run.xml'.
 
- ) 
-Here is how much of TeX's memory you used:
- 17536 strings out of 476025
- 308787 string characters out of 5790017
- 1880388 words of memory out of 5000000
- 37783 multiletter control sequences out of 15000+600000
- 515776 words of font info for 44 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 90i,12n,90p,1185b,1482s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on cv.pdf (4 pages, 115725 bytes).
-PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 30 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+\OT1/cmr/m/n/10 Python,
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+\OT1/cmr/m/n/10 MAT-LAB,
+ []
+
+/Users/Maria/Documents/GitHub/mariaddld.github.io/docs/cv/cv.tex:94: Missing } inserted.
+<inserted text> 
+                }
+l.94 \leftbfrightsingle
+                       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/Maria/Documents/GitHub/mariaddld.github.io/docs/cv/cv.tex:94: You can't use `\/' in internal vertical mode.
+\fix@penalty ...m \lastpenalty =\z@ \@@italiccorr 
+                                                  \else \count@ \lastpenalty...
+l.94 \leftbfrightsingle
+                       
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/Maria/Documents/GitHub/mariaddl

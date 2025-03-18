@@ -109,3 +109,4 @@
 \newcommand{\service}{\bfsingledash}
 \newcommand{\award}{\leftrightsingletight}
 \newcommand{\grant}{\leftbfrightsingle}
+\newcommand{\skill}{\leftrightsingle}
